@@ -1,0 +1,28 @@
+::[namelist_files_1_0 softy_plug]
+
+chcp 1251
+dir /b /d >>filelist.txt
+
+@echo off
+
+:again
+
+::[namelist_files_1_0 softy_plug]
+
+if NOT ["%errorlevel%"]==["0"] goto:error
+echo [92m%~n1 Done.[0m
+shift
+if "%~1" == "" goto:end
+goto:again
+:error
+
+echo [93mError![0m
+pause
+exit 0
+:end
+
+cls
+echo [92mExtracting filenames succesful. This window will close after 10 seconds.[0m
+timeout /t 10
+
+::[namelist_files_1_0 softy_plug]
